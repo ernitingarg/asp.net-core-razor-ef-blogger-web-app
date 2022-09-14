@@ -1,0 +1,103 @@
+﻿@page
+@model StepChange.Blogger.Web.Pages.Blogs.IndexModel
+
+@{
+    ViewData["Title"] = "List Blogs";
+}
+
+<h2>Blogs Details</h2>
+<br/>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by Title or Content:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a asp-page="./Index">Clear</a> |
+            <a asp-page="./Logout">Logout</a>
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.BlogPosts[0].Title)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogPosts[0].Content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogPosts[0].CreationDate)
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.BlogPosts[0].ModificationDate)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogPosts[0].BlogPublisher.Publisher)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.BlogPosts)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModificationDate)
+            </td>
+            <td>
+                <a asp-page="./Details" asp-route-id="@item.BlogPublisher.Id">@Html.DisplayFor(modelItem => item.BlogPublisher.Publisher)</a>
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> 
+                | <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<p>
+    <a asp-page="./Create">Create New</a>
+</p>
+
+<br/>
+
+@{
+    var prevDisabled = !Model.BlogPosts.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.BlogPosts.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.BlogPosts.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.BlogPosts.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @nextDisabled">
+    Next
+</a>

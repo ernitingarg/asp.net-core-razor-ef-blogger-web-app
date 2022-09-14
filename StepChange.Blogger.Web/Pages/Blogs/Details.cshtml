@@ -1,0 +1,68 @@
+﻿@page
+@model StepChange.Blogger.Web.Pages.Blogs.DetailsModel
+
+@{
+    ViewData["Title"] = "Publisher Details";
+}
+
+<h2>@Html.DisplayFor(model => Model.BlogPublisher.Publisher)'s Blogs Details</h2>
+<hr />
+<br/>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => Model.BlogPublisher.BlogPosts.First().Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => Model.BlogPublisher.BlogPosts.First().Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => Model.BlogPublisher.BlogPosts.First().Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => Model.BlogPublisher.BlogPosts.First().CreationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => Model.BlogPublisher.BlogPosts.First().ModificationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => Model.BlogPublisher.BlogPosts.First().BlogPublisher.Role)
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.BlogPublisher.BlogPosts)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModificationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BlogPublisher.Role)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> 
+                | <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>

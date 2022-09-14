@@ -1,0 +1,64 @@
+﻿@page
+@model StepChange.Blogger.Web.Pages.Blogs.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete Blog</h2>
+<hr />
+<br />
+<h4>Are you sure, you want to delete this?</h4>
+<hr />
+
+<div>
+    <dl class="row">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.BlogPost.Title)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.BlogPost.Title)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.BlogPost.Content)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.BlogPost.Content)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.BlogPost.CreationDate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.BlogPost.CreationDate)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.BlogPost.ModificationDate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.BlogPost.ModificationDate)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.BlogPost.BlogPublisher.Publisher)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.BlogPost.BlogPublisher.Publisher)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.BlogPost.BlogPublisher.Role)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.BlogPost.BlogPublisher.Role)
+            </dd>
+        </dl>
+    </dl>
+
+    <form method="post">
+        <div class="form-group">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        </div>
+        <div>
+            <a asp-page="./Index">Back to List</a>
+        </div>
+    </form>
+</div>
