@@ -40,12 +40,8 @@ This repository contains below projects :
 ## Important Note related to credential
 
 - For all publishers, credentials are as below:
-	- Name: Same as publisher name (`Nitin`, `Ed`, `Marcus` etc)
+	- Name: Same as publisher name (`Nitin`, `Ojasvi`, `Neo` etc)
 	- Password: `pass123`
-
-- Currently below publishers are `SuperAdmin`. [all other publishers are `Admin`]
-	- `Nitin`
-	- `Ed`
 
 ## How to run application?
 
