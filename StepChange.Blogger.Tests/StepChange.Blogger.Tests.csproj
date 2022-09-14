@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StepChange.Blogger.DAL\StepChange.Blogger.DAL.csproj" />
+    <ProjectReference Include="..\StepChange.Blogger.Web\StepChange.Blogger.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+    <PackageReference Include="NUnit" Version="3.13.2" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.0.0" />
+    <PackageReference Include="NunitXml.TestLogger" Version="2.1.62" />
+    <PackageReference Include="Moq" Version="4.16.1" />
+  </ItemGroup>
+
+</Project>
