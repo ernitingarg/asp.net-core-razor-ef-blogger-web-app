@@ -58,7 +58,7 @@ namespace StepChange.Blogger.DAL.Persistence
                 new BlogPublisher
                 {
                     Id = Guid.NewGuid(),
-                    Publisher = "Ed",
+                    Publisher = "John",
                     HashPassword = DbUtils.GetHashPassword("pass123"),
                     Role = Role.SuperAdmin
                 }

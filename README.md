@@ -6,6 +6,19 @@
 - Support for customized log4net
 - Hashed based password
 
+Home page listing all the blogs published by publishers:
+
+![HomePage](./images/home.png)
+
+All blogs published by a specific publisher.
+
+![HomePage](./images/publisher.png)
+
+Only publishers having `SuperAdmin` role can edit/delete the blog (Role based authorization) after successful authentication. With test seed data only `Nitin` and `John` are super admin, other publishers can't edit or delete the data.
+
+![HomePage](./images/delete.png)
+
+
 ### Projects
 This repository contains below projects :
 
