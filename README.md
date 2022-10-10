@@ -1,9 +1,15 @@
-# Blog Articles
-
 ## Overview
+
+- ASP.Net Core web application using Razor pages and ef.
+- oAuth secure JWT token based authentication
+- Role based authorization
+- Support for customized log4net
+- Hashed based password
+
+### Projects
 This repository contains below projects :
 
-- **StepChange.Blogger.DAL** : Data access layer which has below responsibilities:
+- **Blogger.DAL** : Data access layer which has below responsibilities:
 	- Creates data access models using core EF required for `Code First Migration`. Below are the tables used:
 		- `BlogPublishers` : For managing publishers who can post the blogs.
 		- `Roles` : Role associated to blog publisher. Currently, below two roles have been added: 
@@ -15,7 +21,7 @@ This repository contains below projects :
 	- Persistence layer for seeding test data.
 	- Publisher credentials are saved in db using secure one-way hashing algorithm.
 
-- **StepChange.Blogger.Web** : Front end Web application which uses DAL layer (intern core EF) and Razor pages to perform CRUD operation on blog posts and blog publishers.
+- **Blogger.Web** : Front end Web application which uses DAL layer (intern core EF) and Razor pages to perform CRUD operation on blog posts and blog publishers.
 	- Below are the razor pages which has main functionalities:
 		- `Index` : Application default landing (non-logged in) page which shows the latest blogs posts.
 		- `Create`: Allow to create a new blog post [Require Authentication and Authroization of Admin/SuperAdmin]
@@ -35,15 +41,15 @@ This repository contains below projects :
 		- `Initial` : This migration has been created using `Release` build configuration and can be used for prod.
 		- `InitialWithTestData`: This migration has been created using `Debug` build configuration and can be used for test/development which seeds dummy data in database.
 	
-- **StepChange.Blogger.Tests** : Tests project which has unit tests to validate DAL and security layer.
+- **Blogger.Tests** : Tests project which has unit tests to validate DAL and security layer.
 
-## Important Note related to credential
+### Important Note related to credential
 
 - For all publishers, credentials are as below:
 	- Name: Same as publisher name (`Nitin`, `Ojasvi`, `Neo` etc)
 	- Password: `pass123`
 
-## How to run application?
+### How to run application?
 
 - `git clone https://github.com/stepchange-assessments/ng.git`	
 - go to folder `ng` and run `database.bat` which will apply the migration in local database.
@@ -52,4 +58,6 @@ This repository contains below projects :
 	- **NOTE** If you apply from visual studio, please select the `Debug` mode which will apply migration to seed dummy data.
 - Right click on `StepChange.Blogger.Web` -> `Set as Start up project`
 - Press `Ctrl F5` key to run the application on browser.
-	
+
+## Authors
+Nitin Garg
